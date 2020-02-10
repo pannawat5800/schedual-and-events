@@ -1,0 +1,59 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<mat-toolbar color="primary">Scheduler & Events</mat-toolbar>
+<div class="container row-flex-container">
+  <div class="calendar">
+    <div class="card">
+      <div class="row-flex fx-between-layout fx-center-layout">
+        <h2>{{ viewDate | calendarDate: view + 'ViewTitle':locale }}</h2>
+        <div class="btn-row">
+          <button mat-raised-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+            Prev
+          </button>
+          <button mat-raised-button color="primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+            Next
+          </button>
+        </div>
+      </div>
+      <ng-container *ngIf="eventsCalendar$ | async; let events">
+        <div>
+          <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" (dayClicked)="dayClicked($event.day)"
+            (eventClicked)="eventClicked($event.event)">
+          </mwl-calendar-month-view>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="event">
+    <div class="card">
+      <div class="row-flex fx-between-layout fx-center-layout">
+        <div style="margin-left: 15px;">
+          <div class="card-title">Dayliy Events</div>
+          <div class="card-sub-title">{{currentDateSeletor | date: 'yyyy-MM-dd'}}</div>
+        </div>
+        <div>
+          <button (click)="openEventDialog()" mat-fab color="warn">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="card-content">
+        <mat-list>
+          <ng-container *ngFor="let event of events$ | async">
+            <mat-list-item>
+              <mat-icon mat-list-icon>event</mat-icon>
+              <h3 matLine style="font-weight: 600;"> {{event.title}} </h3>
+              <p matLine class="text-inline" style="font-weight: 600;">
+                {{event.start | date: 'hh:mm'}} - {{event.end | date: 'hh:mm'}}
+              </p>
+              <button mat-icon-button color="danger" (click)="deleEventItem(event.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+</div>

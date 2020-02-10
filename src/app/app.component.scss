@@ -1,0 +1,153 @@
+
+.container {
+  height: 100%;
+  margin: 0px auto;
+  padding: 1em;
+  background-color: #0a0a0a8a;
+  overflow-y: scroll
+}
+
+.row-flex-container {
+  display: flex;
+  flex-direction: row;
+  // justify-content: start;
+}
+
+.row-flex {
+  display: flex;
+  flex-direction: row;
+  // justify-content: start;
+}
+
+.calendar {
+  width: 65%;
+  padding: 0.7em;
+}
+
+.event {
+  width: 35%;
+  padding: 0.7em;
+}
+
+.fx-center-row {
+  justify-content: center;
+}
+
+.fx-center-layout {
+  align-items: center;
+}
+
+.fx-between-layout {
+  justify-content: space-between;
+}
+
+.btn-row {
+  margin-bottom: 1em;
+}
+
+.btn-row button {
+  margin-right: 8px;
+}
+
+
+.avatar .mat-icon{
+  font-size: 25px;
+  box-sizing: content-box;
+  border-radius: 50%;
+  padding: 12px;
+  background-color: #fae317;
+  margin-right: 1em;
+}
+
+.card{
+
+  padding: 0.7em 1.5em 1.5em 1.5em;
+  border-radius: 15px;
+  background-color: #fffffff8;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  
+}
+
+.card-title{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.card-sub-title{
+  font-size: 15px;
+  font-weight: 600;
+  color: #9a3ef0;
+}
+
+.card-content{
+  height: 560px;
+  overflow-y: auto
+}
+
+.mat-list-icon {
+  background-color: #d12828;
+  color: #ffffff;
+
+}
+
+.mat-list-base .mat-list-item .mat-list-icon, .mat-list-base .mat-list-option .mat-list-icon{
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  box-sizing: content-box;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.mat-list-text{
+  font-weight: 600;
+}
+
+.text-inline{
+  font-size: 14px;
+  color: #9a3ef0;
+}
+
+@media only screen and (max-width: 1100px) {
+  .container{
+    padding: 5px;
+  }
+  .calendar {
+    width: 50%;
+    padding: 5px;
+    margin-bottom: 2em;
+  }
+
+  .event{
+    width: 500%;
+    padding: 5px;
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .container{
+    padding: 4px;
+  }
+
+  .row-flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .calendar {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 2em;
+  }
+
+  .event{
+    width: 100%;
+    padding: 5px;
+  }
+}
