@@ -7,6 +7,9 @@
       <div class="row-flex fx-between-layout fx-center-layout">
         <h2>{{ viewDate | calendarDate: view + 'ViewTitle':locale }}</h2>
         <div class="btn-row">
+          <button mat-raised-button color="warn" mwlCalendarToday  [(viewDate)]="viewDate">
+            today
+          </button>
           <button mat-raised-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
             Prev
           </button>
@@ -44,7 +47,7 @@
               <mat-icon mat-list-icon>event</mat-icon>
               <h3 matLine style="font-weight: 600;"> {{event.title}} </h3>
               <p matLine class="text-inline" style="font-weight: 600;">
-                {{event.start | date: 'hh:mm'}} - {{event.end | date: 'hh:mm'}}
+                {{event.start | date: 'hh:mm a'}} - {{event.end | date: 'hh:mm a'}}
               </p>
               <button mat-icon-button color="danger" (click)="deleEventItem(event.id)">
                 <mat-icon>delete</mat-icon>
